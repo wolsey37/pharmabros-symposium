@@ -1,0 +1,321 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>비염약 상담카드 시연 대본</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#F3F5F8; --surface:#FFFFFF; --side:#EAEEF4; --ink:#151922; --muted:#5A6371; --rule:#DAE0E8;
+  --accent:#2C47CF; --accent-soft:#E9EDFC; --warn-bg:#FFF4DB; --warn:#8A5D00; --code-bg:#E1E6EE;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D0F13; --surface:#161A21; --side:#1B2029; --ink:#E6E9EF; --muted:#9AA3B1; --rule:#2A303B;
+    --accent:#93A5FF; --accent-soft:#1C2340; --warn-bg:#2E2610; --warn:#E3B456; --code-bg:#252B36;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D0F13; --surface:#161A21; --side:#1B2029; --ink:#E6E9EF; --muted:#9AA3B1; --rule:#2A303B;
+  --accent:#93A5FF; --accent-soft:#1C2340; --warn-bg:#2E2610; --warn:#E3B456; --code-bg:#252B36;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding:36px 20px 72px}
+.wrap{max-width:1080px;margin:0 auto;display:grid;gap:36px}
+h1,h2{margin:0;line-height:1.3;text-wrap:balance}
+h1{font-size:30px;font-weight:700}
+h2{font-size:20px;font-weight:700}
+p{margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;padding:2px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--rule);color:var(--muted)}
+.chip.date{background:var(--ink);color:var(--ground);border-color:var(--ink);border-radius:4px;font-family:"IBM Plex Mono",monospace}
+header{display:grid;gap:12px}
+.lede{color:var(--muted);max-width:70ch}
+.words{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
+.words b{color:var(--ink);font-weight:600}
+
+
+/* 가로 목차 */
+.toc{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+.toc a{flex:none;font-size:13px;font-weight:600;text-decoration:none;color:var(--muted);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:5px 12px}
+.toc a:active{color:var(--accent);border-color:var(--accent)}
+
+
+
+/* flow block */
+.flow{display:grid;gap:0;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.flow-head{display:grid;gap:4px;padding:16px 20px;border-bottom:1px solid var(--rule)}
+.flow-head .row{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.flow-head .num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--accent);font-weight:500}
+.flow-head .dur{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted)}
+.msg{font-size:15px;color:var(--ink)}
+.msg::before{content:"전할 한 가지 · ";color:var(--accent);font-weight:600}
+
+.cols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.colhead{font-size:12px;letter-spacing:.08em;color:var(--muted);font-weight:500;padding:8px 20px;border-bottom:1px solid var(--rule)}
+.colhead.l{background:var(--side)}
+.step{display:contents}
+.act{background:var(--side);padding:14px 20px;border-bottom:1px solid var(--rule);display:grid;gap:8px;align-content:start}
+.say{padding:14px 22px;border-bottom:1px solid var(--rule);display:grid;gap:8px;align-content:start;font-size:16.5px;line-height:1.75}
+.step:last-child .act,.step:last-child .say{border-bottom:none}
+.act .n{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--accent);font-weight:500}
+.act .c{font-weight:600;font-size:15px}
+.app{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.02em;padding:1px 7px;margin-right:6px;border-radius:4px;background:var(--accent-soft);color:var(--accent);vertical-align:1px}
+.kbd{display:inline-block;font-size:12.5px;font-weight:600;padding:0 6px;border:1px solid var(--rule);border-bottom-width:2px;border-radius:4px;background:var(--surface);white-space:nowrap}
+.act .pt{font-size:13.5px;color:var(--muted)}
+.act .pt::before{content:"짚기 ";color:var(--accent);font-weight:600}
+.act pre{margin:0;font-family:"IBM Plex Mono","IBM Plex Sans KR",monospace;font-size:12.5px;line-height:1.6;background:var(--code-bg);border-radius:6px;padding:8px 10px;white-space:pre-wrap;overflow-x:auto}
+.say em{font-style:normal;background:var(--accent-soft);padding:0 3px;border-radius:3px}
+.note{background:var(--warn-bg);padding:10px 20px;font-size:14px;border-top:1px solid var(--rule)}
+.note b{color:var(--warn)}
+
+.box{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:14px 20px;display:grid;gap:8px}
+.box ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:15px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:720px){
+  body{font-size:16px;padding:18px 14px 64px}
+  .wrap{gap:24px}
+  h1{font-size:25px}
+  h2{font-size:18.5px}
+  .lede{font-size:15px}
+  .flow-head{padding:14px 16px}
+  .cols{grid-template-columns:1fr}
+  .colhead{display:none}
+  .act{border-bottom:none;padding:12px 16px 10px}
+  .act::before{content:"누를 곳";font-size:11px;letter-spacing:.06em;color:var(--muted);font-weight:600}
+  .act .c{font-size:15.5px}
+  .act pre{font-size:12px}
+  .say{padding:10px 16px 16px;font-size:16.5px;border-bottom:none}
+  .step+.step .act{border-top:1px solid var(--rule);margin-top:2px;padding-top:14px}
+  .note{padding:10px 16px}
+  .box{padding:14px 16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="meta"><span class="chip date">2026.09.20</span><span class="chip">AX 심포지엄</span><span class="chip">시연 약 17분</span><span class="chip">설정 약 4분</span></div>
+  <h1>비염약 상담카드 시연 대본</h1>
+  <p class="lede">맨 위는 발표에서 <b>시연으로 넘어가는 대본</b>이고, 그 아래가 시연 대본입니다. 발표에서 프로젝트로 관리하는 방법까지 설명한 뒤, 미리 돌려 둔 대화와 결과 파일을 열어 보여 줍니다. 새로 보내는 것은 없습니다. 화면은 세 가지입니다. <b>사이언스</b>(크롬)와 <b>클로드</b> 앱에서는 대화를, <b>옵시디언</b>에서는 폴더에 저장된 결과 파일을 엽니다. 앞의 두 흐름은 설정 없이 프롬프트 하나로 시킨 작업, 뒤의 두 흐름은 프로젝트로 관리하며 시킨 작업입니다. 마지막 “설정” 흐름은 발표 마지막 장에서 다시 시연 화면으로 넘어와 보여 줍니다. 왼쪽은 화면과 누를 곳, 오른쪽은 그때 읽을 말입니다.</p>
+</header>
+<nav class="toc" aria-label="바로 가기">
+  <a href="#t-deck">시연으로 넘어가며</a><a href="#t-0">시연 시작</a><a href="#t-1">흐름 1 사이언스</a><a href="#t-2">흐름 2 클로드</a><a href="#t-3">흐름 3 사이언스</a><a href="#t-4">흐름 4 클로드</a><a href="#t-5">설정</a><a href="#t-prep">준비</a>
+</nav>
+
+<!-- 발표 대본 -->
+<section class="flow" aria-labelledby="t-deck">
+  <div class="flow-head"><div class="row"><span class="num">발표</span><h2 id="t-deck">PPT 마지막 · 시연으로 넘어가며</h2><span class="dur">1분</span></div>
+    <p class="msg">프로젝트로 묶으면 질문 하나로 네 단계가 이어진다.</p></div>
+  <div class="cols">
+    <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
+    <div class="step">
+      <div class="act"><span class="c">발표 화면 — 프로젝트 구성 장</span><span class="pt">네 단계를 손으로 짚으며 읽습니다</span></div>
+      <div class="say"><p>클로드에서 프로젝트를 생성하고 적절하게 지침을 만들어두면 찾고싶은 질문만 입력했을 때</p>
+        <p><em>첫번째</em>로 논문에서 검증 정보를 찾게하고<br>
+        <em>두번째</em> 식약처와 약학정보원의 정보를 가져오게 한 뒤<br>
+        <em>세번째</em> 자동으로 결과물 2개를 대조하도록 시키면<br>
+        <em>네번째</em> 마지막 최종 답변을 가지고 여러가지 산출물을 만들어 볼 수 있어요.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="c">같은 화면에서 사이언스와 클로드를 가리키기</span><span class="pt">두 앱을 나눠 쓰는 이유</span></div>
+      <div class="say"><p>클로드 사이언스는 베타 버전이라 클로드 프로젝트에서 한 번에 진행할 수 없습니다.</p>
+        <p>사이언스에서 먼저 논문 정보를 찾고<br>결과물 파일을 클로드에 연결하면 쉽게 진행할 수 있습니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="c">발표 화면 → 시연 화면으로 전환</span><span class="pt">여기서 시연이 시작됩니다</span></div>
+      <div class="say"><p>이렇게 글만 보시면 감이 안오실 것 같아서 실제 화면을 보여드리겠습니다.</p>
+        <p>지금 클로드를 열어보겠습니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 시작 -->
+<section class="flow" aria-labelledby="t-0">
+  <div class="flow-head"><div class="row"><span class="num">시작</span><h2 id="t-0">실제 화면으로</h2><span class="dur">30초</span></div></div>
+  <div class="cols">
+    <div class="step">
+      <div class="act"><span class="c">발표 화면 → 크롬 사이언스 화면으로 전환</span><span class="pt">순서만 먼저 알려 줍니다</span></div>
+      <div class="say"><p>지금까지 설명드린 과정을 이제 실제 화면으로 보여 드리겠습니다.</p><p>먼저 <em>아무 설정 없이 프롬프트 하나씩</em> 시켜 본 결과를 보여 드리고, 이어서 <em>프로젝트를 만들어</em> 조건을 미리 넣어 두고, 같은 일을 짧은 프롬프트 한 줄로 시킨 결과를 보여 드리겠습니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 흐름 1 -->
+<section class="flow" aria-labelledby="t-1">
+  <div class="flow-head">
+    <div class="row"><span class="num">흐름 1</span><h2 id="t-1">사이언스 「상담카드-프롬프트」 · 해외 논문 조사</h2><span class="dur">4분</span></div>
+    <p class="msg">논문 번호와 정확한 용량·대상까지 붙여서 가져온다.</p>
+  </div>
+  <div class="cols">
+    <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
+    <div class="step">
+      <div class="act"><span class="n">1</span><span class="c"><span class="app">사이언스</span>크롬 사이언스 대시보드 → <span class="kbd">상담카드-프롬프트</span> 클릭</span><span class="pt">아무 설정도 하지 않은 작업 공간</span></div>
+      <div class="say"><p>먼저 클로드 사이언스입니다. 연구자를 위해 만든 클로드로, 펍메드 같은 논문 데이터베이스에 바로 연결돼 있어서 논문을 찾고, 초록을 읽고, 근거를 정리해서 보고서 파일로 남기는 일을 합니다.</p><p>이 작업 공간은 <em>아무 설정 없이</em>, 프롬프트 하나로만 시켜 본 곳입니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">2</span><span class="c"><span class="app">사이언스</span>세션 <span class="kbd">알레그라정 120mg 논문 근거 검색</span> → 맨 위 프롬프트</span>
+<pre>알레그라정120mg의 논문 근거를 찾아줘.
+범위: 주성분 기준, 함량·연령 무관, 효능과 주의사항, 임상시험 포함
+인용: PubMed에서 PMID·DOI가 실제로 확인되는 논문만, 문장마다 PMID · 대상 연령 · 용량 · 투여횟수
+없으면: 지어내지 말고 "없음"
+저장: ~/workspace/pharmacy/00_근거함/science_result.md</pre></div>
+      <div class="say"><p>맨 위 프롬프트를 보시면, 약 이름 한 줄 아래에 조건을 네 줄 붙였습니다.</p><p>범위는 <em>주성분 기준, 함량·연령 무관, 효능과 주의사항, 임상시험 포함</em>으로 지정했고, 인용은 펍메드에서 PMID가 확인되는 논문만, 문장마다 PMID와 대상 연령·용량·투여횟수를 달게 했습니다. 없으면 지어내지 말고 “없음”이라고 쓰게 했고, 마지막 줄은 저장할 곳입니다.</p><p>이런 조건이 있어야 <em>나중에 허가와 맞춰 볼 수</em> 있기 때문입니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">3</span><span class="c"><span class="app">사이언스</span><span class="kbd">Ran 14 commands</span> 펼치기 → 중간의 <span class="kbd">Reviewer · Fixed</span> → 맨 아래 정정 답변</span><span class="pt">사이언스 기본 검토 단계(Reviewer) · “58건 검증” → “8/58건만 교차검증”</span></div>
+      <div class="say"><p>아래를 펼쳐 보면, 프롬프트를 받고 사이언스가 거친 과정이 그대로 남아 있습니다. 펍메드에서 찾고, 논문 요약에서 나이와 용량을 뽑고, <em>논문 번호가 실제로 있는지</em>까지 대조했습니다.</p><p>여기 재미있는 장면이 하나 있습니다. 사이언스에는 답을 한 번 더 들여다보는 <em>자체 검토 단계</em>가 기본으로 들어 있습니다. 처음엔 58편 모두 번호를 교차 확인했다고 적었는데, 검토 단계가 실제로 교차 확인된 건 8편뿐이라고 짚었고, 스스로 문장을 고쳐 다시 저장했습니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">4</span><span class="c"><span class="app">옵시디언</span>결과 파일 <span class="kbd">00_근거함/science_result.md</span> 열기 → 2절 “2~5세 알레르기 비염 소아” 문장</span><span class="pt">2~5세 · 펙소페나딘염산염 30mg 1일 2회 · “우수한 안전성 프로파일” · PMID 17941284</span></div>
+      <div class="say"><p>결과 파일을 열어 보면, 문장마다 끝에 <em>논문 번호(PMID)</em>와 대상 연령·용량·투여횟수가 붙어 있습니다. 이 번호는 펍메드에 실제로 있는 논문 번호입니다.</p><p>이 문장을 보시면, <em>2~5세 아이</em>에게 펙소페나딘 <em>30mg을 하루 두 번</em> 준 시험에서 안전성이 좋았다는 논문입니다. 논문 번호, 대상, 용량까지 다 확인됐습니다.</p><p>그런데 매대의 알레그라정은 120mg, 하루 한 번입니다. 이 논문을 그대로 믿어도 될지, 이제 <em>국내 허가사항</em>과 맞춰 보겠습니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 흐름 2 -->
+<section class="flow" aria-labelledby="t-2">
+  <div class="flow-head">
+    <div class="row"><span class="num">흐름 2</span><h2 id="t-2">클로드 「시연-자료」 · 국내 허가사항 확인과 대조</h2><span class="dur">4분</span></div>
+    <p class="msg">논문이 진짜여도, 함량·연령에 따라 허가가 다르다.</p>
+  </div>
+  <div class="cols">
+    <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
+    <div class="step">
+      <div class="act"><span class="n">1</span><span class="c"><span class="app">클로드</span>클로드 앱 → 사이드바 <span class="kbd">시연-자료</span> → <span class="kbd">알레그라정120mg 국내 허가사항</span> → 맨 위 프롬프트</span>
+<pre>알레그라정120mg 국내 허가사항 확인해줘
+ - 출처: 약학정보원
+ - 확인: 용법용량 · 소아 · 금기
+ - 기준: 원문 그대로
+ - 저장: …/01_허가사항/korea_result.md</pre></div>
+      <div class="say"><p>이번엔 클로드로 넘어가 보겠습니다. 폴더의 파일을 읽고 쓰고, 웹에서 자료를 가져와서 여러 단계 일을 끝까지 해내는 AI 비서입니다. 여기서도 <em>설정 없이 프롬프트 하나로</em> 국내 허가사항을 확인하게 했습니다.</p><p>출처는 약학정보원, 기준은 <em>원문 그대로</em>입니다. 허가 문구를 AI가 자기 말로 바꾸지 못하게 넣은 한 줄입니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">2</span><span class="c"><span class="app">옵시디언</span>결과 파일 <span class="kbd">01_허가사항/korea_result.md</span> 열기 → 용법·용량 → 소아 → 비고</span><span class="pt">“성인 및 12세 이상 청소년 1일 1회 120 mg” · “12세 미만 … 확보되지 않았다” · “12세 미만의 소아 … 확립되어 있지 않다” · “금기라는 표현은 쓰이지 않고”</span></div>
+      <div class="say"><p>결과 파일을 열어 보면, 성인과 12세 이상은 하루 한 번 120mg이고, 12세 미만은 안전성·유효성이 <em>확립되어 있지 않다</em>고 나옵니다.</p><p>금기가 아니라 미확립입니다. AI가 금기로 부풀리지도, 괜찮다고 줄이지도 않았습니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">3</span><span class="c"><span class="app">클로드</span>사이드바에서 다른 세션 <span class="kbd">논문 결과와 허가사항 대조</span>로 이동 → 맨 위 프롬프트</span><span class="pt">두 파일 경로 · 판정 · 주의 · 제외 줄</span></div>
+      <div class="say"><p>이번엔 옆의 다른 대화로 넘어가 보겠습니다. 앞에서 사이언스가 만든 논문 결과와 방금 본 허가사항, <em>이 두 파일을 맞춰 보라고</em> 따로 시킨 대화입니다.</p><p>프롬프트를 보시면 두 파일의 위치를 알려 주고, 판정은 <em>통과·확인·제외</em> 셋 중 하나로 하게 했습니다. 조심할 것도 두 가지 붙였습니다. 허가에 없다고 안전하다고 읽지 말 것, 그리고 등급을 올려 쓰지 말 것.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">4</span><span class="c"><span class="app">옵시디언</span>결과 파일 <span class="kbd">02_확인결과/compare_result.md</span> 열기 → B절 소아 논문 표 → 19번 행</span><span class="pt">PMID 18219837 · 생후 6개월~2세 · 15/30mg 1일2회 → 제외</span></div>
+      <div class="say"><p>결과 파일을 열어보면 이 줄이 있습니다. 생후 6개월에서 2세, 15·30mg 하루 두 번. 판정은 <em>제외</em>입니다.</p><p>이유도 같이 적혀 있습니다. 12세 미만은 이 약의 허가 대상이 아니고, 용량도 허가와 다르다는 것입니다. 이렇게 <em>함량이나 연령에 따라 허가가 다르기 때문에</em> 복용 안내도 달라질 수밖에 없습니다.</p></div>
+    </div>
+  </div>
+  <p class="note"><b>발표자 참고</b> 이 대조는 흐름 1 보고서의 이전 판으로 만들었습니다. 19번 행의 논문(18219837)은 지금 흐름 1 보고서에는 없으니 두 파일을 나란히 열지 않습니다.</p>
+</section>
+
+<!-- 흐름 3 -->
+<section class="flow" aria-labelledby="t-3">
+  <div class="flow-head">
+    <div class="row"><span class="num">흐름 3</span><h2 id="t-3">사이언스 「상담카드」 · 프로젝트로 관리하기</h2><span class="dur">4분</span></div>
+    <p class="msg">프롬프트에 적던 조건을 지침으로 넣어 두면, 약 이름만으로 된다.</p>
+  </div>
+  <div class="cols">
+    <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
+    <div class="step">
+      <div class="act"><span class="n">1</span><span class="c"><span class="app">사이언스</span>크롬으로 돌아와 <span class="kbd">⌄</span> → <span class="kbd">상담카드</span> → <span class="kbd">⌄</span> → <span class="kbd">Project settings</span> → <span class="kbd">Cancel</span></span><span class="pt">범위 · 인용 · 저장 · 형식 네 덩어리</span></div>
+      <div class="say"><p>이제 <em>프로젝트를 만들어</em> 방금 보신 조건을 넣어 두면, 짧은 프롬프트 하나로 같은 일을 시킬 수 있습니다.</p><p>아까는 프롬프트마다 조건을 적었는데, 여기서는 그것을 <em>프로젝트 지침</em>으로 한 번만 넣어 두었습니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">2</span><span class="c"><span class="app">사이언스</span>사이드바 <span class="kbd">지르텍정 · 클라리틴정 · 알레그라정 논문 근거</span> (9/11 세션) → 맨 위 한 줄 → 진행 단계 펼치기</span>
+<pre>지르텍정 · 클라리틴정 · 알레그라정120mg 논문 근거 찾아줘</pre><span class="pt">후보 수집 → 초록 대조 · 레보세티리진 혼입 제외 · DOI 오류 수정</span></div>
+      <div class="say"><p>그래서 이번엔 약 이름 한 줄만 보냈습니다. 약도 세 개로 늘렸습니다.</p><p>프롬프트에는 조건이 하나도 없는데, 진행 과정을 보시면 프로젝트 지침대로 움직였습니다. 주성분을 먼저 확인하고, 펍메드에서 후보 논문을 넓게 모은 뒤, <em>초록을 하나하나 대조해</em> 추렸습니다.</p><p>중간에 스스로 잡아낸 실수도 있습니다. 세티리진을 찾다가 이름이 비슷한 <em>레보세티리진</em>, 다른 성분이 섞인 것을 걸러냈고, 논문 주소가 잘못 잡힌 것도 고쳤습니다.</p><p>그리고 결과는 지침에 적힌 이름과 위치에 그대로 저장했습니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">3</span><span class="c"><span class="app">옵시디언</span>결과 파일 <span class="kbd">00_근거함/…_논문근거보고서.md</span> 열기</span><span class="pt">1-3 펙소페나딘 두 번째 문장: 생후 6개월~2세 · 15·30mg 1일 2회 · 위약과 임상적 차이 없음 · PMID 18219837 / 2절 결론 “→ 없음”</span></div>
+      <div class="say"><p>이 프로젝트에서 사이언스가 폴더에 저장한 보고서를 열어 보겠습니다. 해외 논문을 찾는 단계에서 만든 결과입니다.</p><p>알레그라정 부분을 보시면 영유아 문장이 있습니다. 생후 6개월에서 2세, 15·30mg 하루 두 번. <em>위약과 임상적 차이가 없었다</em>고 적혀 있습니다. 논문 번호도 붙어 있는 진짜 논문이지만, 이 단계에서는 아직 걸러지지 않은 상태입니다. 이 문장이 다음 단계에서 어떻게 되는지 따라가 보겠습니다. 그리고 여기, “세 약을 한 번에 비교한 시험은 <em>없음</em>.” 없으면 없다고 씁니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 흐름 4 -->
+<section class="flow" aria-labelledby="t-4">
+  <div class="flow-head">
+    <div class="row"><span class="num">흐름 4</span><h2 id="t-4">클로드 「약국 검증 자료」 · 한 줄로 카드까지</h2><span class="dur">4분</span></div>
+    <p class="msg">지침을 넣어 둔 프로젝트에서는 한 줄 호출로 허가 확인부터 카드까지 이어진다.</p>
+  </div>
+  <div class="cols">
+    <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
+    <div class="step">
+      <div class="act"><span class="n">1</span><span class="c"><span class="app">클로드</span>클로드 사이드바 프로젝트 <span class="kbd">약국 검증 자료</span> → 오른쪽 폴더 · 지침 연필 → <span class="kbd">취소</span></span><span class="pt">폴더 pharmacy · 지침의 “지침_&lt;이름&gt;, &lt;키워드&gt;” 문장 · “지침을 읽기 전에는 작업을 시작하지 마라”</span></div>
+      <div class="say"><p>이번엔 클로드 쪽 프로젝트입니다. 오른쪽에 붙은 폴더를 보시면, 조금 전에 사이언스가 보고서를 넣어 둔 바로 그 폴더입니다. <em>두 AI가 같은 폴더를 함께 쓰는</em> 셈입니다.</p><p>지침도 들어 있습니다. 지침 이름과 약 이름으로 부르면, 폴더 안의 지침 파일을 먼저 읽고 그대로 따르라는 내용입니다. 지침을 읽기 전에는 시작하지도 말라고 적어 두었습니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">2</span><span class="c"><span class="app">클로드 → 옵시디언</span>채팅 목록 <span class="kbd">알레르기약 상담카드</span> → 맨 위 한 줄 → 옵시디언으로 넘어가 결과 파일 <span class="kbd">01_허가사항/…_허가사항.md</span> 열기 → “확정 품목” 표</span>
+<pre>지침_상담카드, 지르텍정 · 클라리틴정 · 알레그라정120mg</pre><span class="pt">Found the guide file … · 확정 품목 표의 대상 3개 제품명·성분·함량 · 참고 1개 / 용법용량·소아 표의 알레그라정120mg “12세 미만 소아 안전성 및 유효성 미확립”</span></div>
+      <div class="say"><p>그래서 보낸 것은 <em>이 한 줄뿐</em>입니다. 클로드가 처음 한 말이 “지침 파일을 찾았으니 먼저 읽겠다”입니다.</p><p>아까는 허가사항을 확인해 달라고 따로 물어봤는데, 여기서는 지침대로 알아서 합니다. 클로드가 폴더에 남긴 허가사항 파일을 열어 보면, 약학정보원에서 세 제품을 찾아서 성분과 함량을 맨 위 표로 먼저 정리했고, 이름이 비슷한 다른 제품도 헷갈리지 않게 참고로 따로 표시해 두었습니다.</p><p>아래로 내려 보면 알레그라정120mg은 <em>“12세 미만 소아 안전성 및 유효성 미확립”</em>, 허가 원문 그대로 적혀 있습니다. 조금 전 영유아 문장과 부딪히는 부분입니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">3</span><span class="c"><span class="app">옵시디언</span>결과 파일 <span class="kbd">02_확인결과/…_확인결과.md</span> 열기</span><span class="pt">PMID 18219837 행 “제외” · 집계</span></div>
+      <div class="say"><p>다음은 아까 손으로 시켰던 <em>대조</em>입니다. 확인결과 파일을 열어 보면, 이번엔 보고서 문장을 하나하나 허가사항과 맞춘 표로 나왔습니다.</p><p>앞에서 본 영유아 문장도 여기서 제외됐고, 12세 미만 미확립과 맞지 않는다는 이유가 옆에 적혀 있습니다. 통과 6건, 확인 7건, 제외 10건. <em>뺀 것마다 이유가 남아 있습니다.</em></p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">4</span><span class="c"><span class="app">옵시디언</span>결과 파일 <span class="kbd">03_결과함/…_상담카드.pdf</span> 열기 → 맨 아래 6번 “허가사항과 맞지 않아 뺀 근거” → 4번 매트릭스 “12세 미만” 행</span><span class="pt">영유아(6개월~2세) · PMID 18219837 · 알레그라정120mg “안전성 및 유효성 미확립”</span></div>
+      <div class="say"><p>마지막으로 이 과정을 거쳐서 폴더에 저장된 <em>상담카드 한 장</em>입니다. 허가와 맞거나 출처가 확인된 내용만 실렸습니다.</p><p>맨 아래를 보시면, 앞에서 따라온 <em>영유아 문장</em>이 여기 있습니다. 생후 6개월~2세 자료, 논문 번호 18219837. 국내 허가범위를 넘어서 뺐다고 이유와 함께 남겨 두었습니다. 위의 표에서도 알레그라정120mg의 12세 미만 칸은 허가 원문 그대로 <em>“안전성 및 유효성 미확립”</em>입니다.</p><p>사람이 한 일은 약 이름을 넣은 것뿐입니다. 그럼 이 카드에서 약사님이 꼭 확인하실 부분을 크게 보면서 짚어 보겠습니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 설정 -->
+<section class="flow" aria-labelledby="t-5">
+  <div class="flow-head">
+    <div class="row"><span class="num">설정</span><h2 id="t-5">실습 킷 받아서 설정하기</h2><span class="dur">4분 · 발표 마지막 장에서 다시 넘어와서</span></div>
+    <p class="msg">폴더 하나 두고, 프로젝트 두 개 만들고, 파일 내용을 붙여 넣기만 하면 된다.</p>
+  </div>
+  <div class="cols">
+    <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
+    <div class="step">
+      <div class="act"><span class="n">1</span><span class="c">발표 화면 “실습자료 공유” 장에서 QR을 띄운 채 잠시 기다린 뒤 → 시연 화면으로 전환</span><span class="pt">QR을 찍을 시간을 먼저 줍니다</span></div>
+      <div class="say"><p>오늘 보신 구성을 그대로 담은 작업 폴더와 설정 안내 페이지를 준비했습니다. 화면의 QR로 받으실 수 있습니다.</p><p>받으신 다음 어떻게 설정하는지, 다시 화면으로 짧게 보여 드리겠습니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">2</span><span class="c"><span class="app">크롬</span>설정 안내 페이지 열기 <span class="kbd">wolsey37.github.io/study/symposium/consult-card-setup.html</span></span><span class="pt">1 폴더 두기 · 2 사이언스 · 3 클로드 · 4 실행하기 네 단계 / 파란 복사 버튼</span></div>
+      <div class="say"><p>설정 방법은 이 안내 페이지 한 장에 다 있습니다. 네 단계를 순서대로 따라 하시면 되고, 붙여 넣을 내용은 모두 <em>복사 버튼</em>으로 되어 있습니다.</p><p>받은 파일을 풀면 <em>workspace 폴더</em> 하나가 나오고, 그 안에 <em>pharmacy 폴더</em>가 있습니다. pharmacy 안에는 상담카드 지침 파일과 칸 네 개, 그리고 오늘 보신 비염약 결과가 견본으로 들어 있습니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">3</span><span class="c"><span class="app">크롬</span>안내 페이지 1단계 “작업 폴더 두기”를 가리키며 옮길 위치만 설명</span><span class="pt">시연 PC에는 이미 ~/workspace/pharmacy가 있으니 실제로 옮기지 않습니다</span></div>
+      <div class="say"><p>먼저 이 <em>workspace 폴더를 통째로 홈 폴더</em>로 끌어다 놓으시면 됩니다. 홈에 workspace 폴더가 이미 있다면, 안의 pharmacy 폴더만 옮기시면 됩니다.</p><p>사이언스는 이 위치에 보고서를 넣고, 클로드는 이 위치에서 꺼내 씁니다. 위치만 맞춰 두시면 두 AI가 같은 폴더를 보게 됩니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">4</span><span class="c"><span class="app">사이언스</span>크롬 사이언스 대시보드 → <span class="kbd">New project</span> → 창만 보여 주고 <span class="kbd">Cancel</span></span><span class="pt">Name · Description · Agent Context 세 칸 / 안내 페이지 2단계 “규칙 전체 복사”</span></div>
+      <div class="say"><p>다음은 클로드 사이언스입니다. 새 프로젝트를 만들고 이름을 적은 뒤, <em>Agent Context 칸</em>에 안내 페이지의 “규칙 전체 복사” 버튼으로 복사한 내용을 붙여 넣으시면 됩니다.</p><p>처음 저장할 때 폴더 권한을 묻는 창이 뜹니다. 읽기 및 쓰기로 허용해 주시면, 그다음부터는 묻지 않습니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">5</span><span class="c"><span class="app">클로드</span>클로드 앱 → 사이드바 프로젝트 옆 <span class="kbd">+</span> → 프로젝트 생성 창만 보여 주고 <span class="kbd">취소</span> → <span class="kbd">약국 검증 자료</span>의 폴더 · 지침 칸 가리키기</span><span class="pt">생성 창의 “폴더 사용” 버튼 / 안내 페이지 3단계 “지침 전체 복사”</span></div>
+      <div class="say"><p>클로드도 같습니다. 프로젝트를 만들 때 <em>“폴더 사용”</em>으로 방금 그 pharmacy 폴더를 연결하고, 지침 칸에 안내 페이지의 “지침 전체 복사” 버튼으로 복사한 내용을 붙여 넣으시면 됩니다.</p><p>완성되면 이렇게 됩니다. 오른쪽에 폴더가 붙어 있고, 지침이 들어 있는 모습입니다. 입력창에서는 Cowork를 켜 두시면 됩니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">6</span><span class="c"><span class="app">사이언스 · 클로드</span>사이언스 · 클로드 입력창을 가리키기만 (보내지 않음)</span>
+<pre>[사이언스] 지르텍정 · 클라리틴정 · 알레그라정120mg 논문 근거 찾아줘
+[클로드]   지침_상담카드, 지르텍정 · 클라리틴정 · 알레그라정120mg</pre></div>
+      <div class="say"><p>이제 부르기만 하면 됩니다. 사이언스에는 약 이름과 “논문 근거 찾아줘”, 클로드에는 “지침_상담카드”와 약 이름을 넣습니다. 약은 두 개 이상 넣어 주세요.</p><p>결과는 pharmacy 폴더의 결과함에 한 장씩 쌓입니다. 안내 페이지 4단계에 약 이름을 넣으면 두 문장이 자동으로 만들어지니, 그대로 복사해 보내시면 됩니다.</p></div>
+    </div>
+    <div class="step">
+      <div class="act"><span class="n">7</span><span class="c">발표 화면으로 돌아가기</span><span class="pt">다음 장으로 넘어갑니다</span></div>
+      <div class="say"><p>마지막 확인은 언제나 약사님이 하시면 됩니다. 다시 발표 화면으로 돌아가겠습니다.</p></div>
+    </div>
+  </div>
+  <p class="note"><b>발표자 참고</b> 설정 흐름에서는 아무것도 새로 만들거나 옮기지 않습니다. 생성 창은 열어서 칸만 보여 주고 취소하고, 완성된 모습은 이미 있는 「상담카드」와 「약국 검증 자료」 프로젝트로 보여 줍니다.</p>
+</section>
+
+<section class="box" aria-labelledby="t-prep">
+  <h2 id="t-prep">시작 전 · 막혔을 때</h2>
+  <ul>
+    <li>크롬에 사이언스 대시보드, 클로드 창은 <b>전체 화면을 풀고 같은 데스크톱</b>에 둡니다.</li>
+    <li>옵시디언은 <b>~/Documents/consult-card-kit</b> 보관함을 열고, science_result · korea_result · compare_result · 논문근거보고서 · 허가사항 · 확인결과 · 카드 PDF를 대본 순서대로 탭에 미리 열어 둡니다.</li>
+    <li>흐름 1·2의 결과 파일(science_result · korea_result · compare_result)은 킷에는 없지만 옵시디언 보관함에 함께 넣어 두었습니다.</li>
+    <li>사이언스 「상담카드」의 세션 「지르텍정 · 클라리틴정 · 알레그라정 논문 근거」(9/11, 한 줄로 새로 검색한 세션)를 엽니다.</li>
+    <li>설정 흐름은 크롬에서 설정 안내 페이지(<b>wolsey37.github.io/study/symposium/consult-card-setup.html</b>)를 미리 열어 두고 보여 줍니다. 킷 zip을 풀면 <b>workspace 폴더</b>(안에 pharmacy) 하나가 나옵니다.</li>
+    <li>시연 PC의 ~/workspace/pharmacy는 옮기거나 덮어쓰지 않습니다.</li>
+    <li>입력창은 누르지 않습니다. 잘못 보내면 대화 끝에 새 메시지가 붙습니다.</li>
+    <li>사이언스 ⌄ 메뉴가 안 열리면 한 번 더 누릅니다.</li>
+    <li>클로드 대화 위쪽이 잘려 보이면 대화를 한 번 누르고 Page Up을 누릅니다.</li>
+    <li>시간이 모자라면 흐름 1의 3번과 흐름 3의 2번을 건너뜁니다.</li>
+  </ul>
+</section>
+
+</div>
