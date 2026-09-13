@@ -32,9 +32,6 @@ p{margin:0}
 .chip{font-size:13px;padding:2px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--rule);color:var(--muted)}
 .chip.date{background:var(--ink);color:var(--ground);border-color:var(--ink);border-radius:4px;font-family:"IBM Plex Mono",monospace}
 header{display:grid;gap:12px}
-.lede{color:var(--muted);max-width:70ch}
-.words{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
-.words b{color:var(--ink);font-weight:600}
 
 
 /* 가로 목차 */
@@ -50,8 +47,6 @@ header{display:grid;gap:12px}
 .flow-head .row{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
 .flow-head .num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--accent);font-weight:500}
 .flow-head .dur{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted)}
-.msg{font-size:15px;color:var(--ink)}
-.msg::before{content:"전할 한 가지 · ";color:var(--accent);font-weight:600}
 
 .cols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
 .colhead{font-size:12px;letter-spacing:.08em;color:var(--muted);font-weight:500;padding:8px 20px;border-bottom:1px solid var(--rule)}
@@ -68,24 +63,18 @@ header{display:grid;gap:12px}
 .act .pt::before{content:"짚기 ";color:var(--accent);font-weight:600}
 .act pre{margin:0;font-family:"IBM Plex Mono","IBM Plex Sans KR",monospace;font-size:12.5px;line-height:1.6;background:var(--code-bg);border-radius:6px;padding:8px 10px;white-space:pre-wrap;overflow-x:auto}
 .say em{font-style:normal;background:var(--accent-soft);padding:0 3px;border-radius:3px}
-.note{background:var(--warn-bg);padding:10px 20px;font-size:14px;border-top:1px solid var(--rule)}
-.note b{color:var(--warn)}
 
-.box{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:14px 20px;display:grid;gap:8px}
-.box ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:15px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media (max-width:720px){
   body{font-size:17.5px;padding:18px 14px 64px}
   .wrap{gap:24px}
   h1{font-size:27px}
   h2{font-size:20px}
-  .lede{font-size:16px}
-  .chip{font-size:14px}
+    .chip{font-size:14px}
   .toc a{font-size:14.5px;padding:6px 13px}
   .flow-head{padding:14px 16px}
   .flow-head .num,.flow-head .dur{font-size:14px}
-  .msg{font-size:16.5px}
-  .cols{grid-template-columns:1fr}
+    .cols{grid-template-columns:1fr}
   .colhead{display:none}
   .act{border-bottom:none;padding:12px 16px 10px}
   .act::before{content:"누를 곳";font-size:12px;letter-spacing:.06em;color:var(--muted);font-weight:600}
@@ -97,10 +86,7 @@ header{display:grid;gap:12px}
   .app{font-size:12.5px}
   .say{padding:12px 16px 18px;font-size:19px;line-height:1.8;border-bottom:none;border-left:0;border-top:4px solid var(--say-bar)}
   .step+.step .act{border-top:1px solid var(--rule);margin-top:2px;padding-top:14px}
-  .note{padding:10px 16px;font-size:15px}
-  .box{padding:14px 16px}
-  .box ul{font-size:16.5px}
-}
+      }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
@@ -109,16 +95,14 @@ header{display:grid;gap:12px}
 <header>
   <div class="meta"><span class="chip date">2026.09.20</span><span class="chip">AX 심포지엄</span><span class="chip">시연 약 17분</span><span class="chip">설정 약 4분</span></div>
   <h1>비염약 상담카드 시연 대본</h1>
-  <p class="lede">맨 위는 발표에서 <b>시연으로 넘어가는 대본</b>이고, 그 아래가 시연 대본입니다. 발표에서 프로젝트로 관리하는 방법까지 설명한 뒤, 미리 돌려 둔 대화와 결과 파일을 열어 보여 줍니다. 새로 보내는 것은 없습니다. 화면은 세 가지입니다. <b>사이언스</b>(크롬)와 <b>클로드</b> 앱에서는 대화를, <b>옵시디언</b>에서는 폴더에 저장된 결과 파일을 엽니다. 앞의 두 흐름은 설정 없이 프롬프트 하나로 시킨 작업, 뒤의 두 흐름은 프로젝트로 관리하며 시킨 작업입니다. 마지막 “설정” 흐름은 발표 마지막 장에서 다시 시연 화면으로 넘어와 보여 줍니다. 왼쪽은 화면과 누를 곳, 오른쪽은 그때 읽을 말입니다.</p>
 </header>
 <nav class="toc" aria-label="바로 가기">
-  <a href="#t-deck">시연으로 넘어가며</a><a href="#t-0">시연 시작</a><a href="#t-1">흐름 1 사이언스</a><a href="#t-2">흐름 2 클로드</a><a href="#t-3">흐름 3 사이언스</a><a href="#t-4">흐름 4 클로드</a><a href="#t-5">설정</a><a href="#t-prep">준비</a>
+  <a href="#t-deck">시연으로 넘어가며</a><a href="#t-0">시연 시작</a><a href="#t-1">흐름 1 사이언스</a><a href="#t-2">흐름 2 클로드</a><a href="#t-3">흐름 3 사이언스</a><a href="#t-4">흐름 4 클로드</a><a href="#t-5">설정</a>
 </nav>
 
 <!-- 발표 대본 -->
 <section class="flow" aria-labelledby="t-deck">
-  <div class="flow-head"><div class="row"><span class="num">발표</span><h2 id="t-deck">PPT 마지막 · 시연으로 넘어가며</h2><span class="dur">1분</span></div>
-    <p class="msg">프로젝트로 묶으면 질문 하나로 네 단계가 이어진다.</p></div>
+  <div class="flow-head"><div class="row"><span class="num">발표</span><h2 id="t-deck">PPT 마지막 · 시연으로 넘어가며</h2><span class="dur">1분</span></div></div>
   <div class="cols">
     <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
     <div class="step">
@@ -155,10 +139,7 @@ header{display:grid;gap:12px}
 
 <!-- 흐름 1 -->
 <section class="flow" aria-labelledby="t-1">
-  <div class="flow-head">
-    <div class="row"><span class="num">흐름 1</span><h2 id="t-1">사이언스 「상담카드-프롬프트」 · 해외 논문 조사</h2><span class="dur">4분</span></div>
-    <p class="msg">논문 번호와 정확한 용량·대상까지 붙여서 가져온다.</p>
-  </div>
+  <div class="flow-head"><div class="row"><span class="num">흐름 1</span><h2 id="t-1">사이언스 「상담카드-프롬프트」 · 해외 논문 조사</h2><span class="dur">4분</span></div></div>
   <div class="cols">
     <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
     <div class="step">
@@ -187,10 +168,7 @@ header{display:grid;gap:12px}
 
 <!-- 흐름 2 -->
 <section class="flow" aria-labelledby="t-2">
-  <div class="flow-head">
-    <div class="row"><span class="num">흐름 2</span><h2 id="t-2">클로드 「시연-자료」 · 국내 허가사항 확인과 대조</h2><span class="dur">4분</span></div>
-    <p class="msg">논문이 진짜여도, 함량·연령에 따라 허가가 다르다.</p>
-  </div>
+  <div class="flow-head"><div class="row"><span class="num">흐름 2</span><h2 id="t-2">클로드 「시연-자료」 · 국내 허가사항 확인과 대조</h2><span class="dur">4분</span></div></div>
   <div class="cols">
     <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
     <div class="step">
@@ -215,15 +193,11 @@ header{display:grid;gap:12px}
       <div class="say"><p>결과 파일을 열어보면 이 줄이 있습니다. 생후 6개월에서 2세, 15·30mg 하루 두 번. 판정은 <em>제외</em>입니다.</p><p>이유도 같이 적혀 있습니다. 12세 미만은 이 약의 허가 대상이 아니고, 용량도 허가와 다르다는 것입니다. 이렇게 <em>함량이나 연령에 따라 허가가 다르기 때문에</em> 복용 안내도 달라질 수밖에 없습니다.</p></div>
     </div>
   </div>
-  <p class="note"><b>발표자 참고</b> 이 대조는 흐름 1 보고서의 이전 판으로 만들었습니다. 19번 행의 논문(18219837)은 지금 흐름 1 보고서에는 없으니 두 파일을 나란히 열지 않습니다.</p>
 </section>
 
 <!-- 흐름 3 -->
 <section class="flow" aria-labelledby="t-3">
-  <div class="flow-head">
-    <div class="row"><span class="num">흐름 3</span><h2 id="t-3">사이언스 「상담카드」 · 프로젝트로 관리하기</h2><span class="dur">4분</span></div>
-    <p class="msg">프롬프트에 적던 조건을 지침으로 넣어 두면, 약 이름만으로 된다.</p>
-  </div>
+  <div class="flow-head"><div class="row"><span class="num">흐름 3</span><h2 id="t-3">사이언스 「상담카드」 · 프로젝트로 관리하기</h2><span class="dur">4분</span></div></div>
   <div class="cols">
     <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
     <div class="step">
@@ -244,10 +218,7 @@ header{display:grid;gap:12px}
 
 <!-- 흐름 4 -->
 <section class="flow" aria-labelledby="t-4">
-  <div class="flow-head">
-    <div class="row"><span class="num">흐름 4</span><h2 id="t-4">클로드 「약국 검증 자료」 · 한 줄로 카드까지</h2><span class="dur">4분</span></div>
-    <p class="msg">지침을 넣어 둔 프로젝트에서는 한 줄 호출로 허가 확인부터 카드까지 이어진다.</p>
-  </div>
+  <div class="flow-head"><div class="row"><span class="num">흐름 4</span><h2 id="t-4">클로드 「약국 검증 자료」 · 한 줄로 카드까지</h2><span class="dur">4분</span></div></div>
   <div class="cols">
     <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
     <div class="step">
@@ -272,10 +243,7 @@ header{display:grid;gap:12px}
 
 <!-- 설정 -->
 <section class="flow" aria-labelledby="t-5">
-  <div class="flow-head">
-    <div class="row"><span class="num">설정</span><h2 id="t-5">실습 킷 받아서 설정하기</h2><span class="dur">4분 · 발표 마지막 장에서 다시 넘어와서</span></div>
-    <p class="msg">폴더 하나 두고, 프로젝트 두 개 만들고, 파일 내용을 붙여 넣기만 하면 된다.</p>
-  </div>
+  <div class="flow-head"><div class="row"><span class="num">설정</span><h2 id="t-5">실습 킷 받아서 설정하기</h2><span class="dur">4분 · 발표 마지막 장에서 다시 넘어와서</span></div></div>
   <div class="cols">
     <div class="colhead l">순서 · 누를 곳</div><div class="colhead">대본</div>
     <div class="step">
@@ -309,23 +277,7 @@ header{display:grid;gap:12px}
       <div class="say"><p>마지막 확인은 언제나 약사님이 하시면 됩니다. 다시 발표 화면으로 돌아가겠습니다.</p></div>
     </div>
   </div>
-  <p class="note"><b>발표자 참고</b> 설정 흐름에서는 아무것도 새로 만들거나 옮기지 않습니다. 생성 창은 열어서 칸만 보여 주고 취소하고, 완성된 모습은 이미 있는 「상담카드」와 「약국 검증 자료」 프로젝트로 보여 줍니다.</p>
 </section>
 
-<section class="box" aria-labelledby="t-prep">
-  <h2 id="t-prep">시작 전 · 막혔을 때</h2>
-  <ul>
-    <li>크롬에 사이언스 대시보드, 클로드 창은 <b>전체 화면을 풀고 같은 데스크톱</b>에 둡니다.</li>
-    <li>옵시디언은 <b>~/Documents/consult-card-kit</b> 보관함을 열고, science_result · korea_result · compare_result · 논문근거보고서 · 허가사항 · 확인결과 · 카드 PDF를 대본 순서대로 탭에 미리 열어 둡니다.</li>
-    <li>흐름 1·2의 결과 파일(science_result · korea_result · compare_result)은 킷에는 없지만 옵시디언 보관함에 함께 넣어 두었습니다.</li>
-    <li>사이언스 「상담카드」의 세션 「지르텍정 · 클라리틴정 · 알레그라정 논문 근거」(9/11, 한 줄로 새로 검색한 세션)를 엽니다.</li>
-    <li>설정 흐름은 크롬에서 설정 안내 페이지(<b>wolsey37.github.io/study/symposium/consult-card-setup.html</b>)를 미리 열어 두고 보여 줍니다. 킷 zip을 풀면 <b>workspace 폴더</b>(안에 pharmacy) 하나가 나옵니다.</li>
-    <li>시연 PC의 ~/workspace/pharmacy는 옮기거나 덮어쓰지 않습니다.</li>
-    <li>입력창은 누르지 않습니다. 잘못 보내면 대화 끝에 새 메시지가 붙습니다.</li>
-    <li>사이언스 ⌄ 메뉴가 안 열리면 한 번 더 누릅니다.</li>
-    <li>클로드 대화 위쪽이 잘려 보이면 대화를 한 번 누르고 Page Up을 누릅니다.</li>
-    <li>시간이 모자라면 흐름 1의 3번과 흐름 3의 2번을 건너뜁니다.</li>
-  </ul>
-</section>
 
 </div>
