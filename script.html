@@ -6,19 +6,20 @@
 <style>
 :root{
   --ground:#F3F5F8; --surface:#FFFFFF; --side:#EAEEF4; --ink:#151922; --muted:#5A6371; --rule:#DAE0E8;
-  --accent:#2C47CF; --accent-soft:#E9EDFC; --warn-bg:#FFF4DB; --warn:#8A5D00; --code-bg:#E1E6EE;
+  --accent:#2C47CF; --accent-soft:#E9EDFC; --say:#0E3A7B; --say-bar:#9FB6EA; --warn-bg:#FFF4DB; --warn:#8A5D00; --code-bg:#E1E6EE;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --ground:#0D0F13; --surface:#161A21; --side:#1B2029; --ink:#E6E9EF; --muted:#9AA3B1; --rule:#2A303B;
-    --accent:#93A5FF; --accent-soft:#1C2340; --warn-bg:#2E2610; --warn:#E3B456; --code-bg:#252B36;
+    --accent:#93A5FF; --accent-soft:#1C2340; --warn-bg:#2E2610; --warn:#E3B456; --code-bg:#252B36; --say:#BBD0FF; --say-bar:#2E3C63;
   }
 }
 :root[data-theme="dark"]{
   --ground:#0D0F13; --surface:#161A21; --side:#1B2029; --ink:#E6E9EF; --muted:#9AA3B1; --rule:#2A303B;
-  --accent:#93A5FF; --accent-soft:#1C2340; --warn-bg:#2E2610; --warn:#E3B456; --code-bg:#252B36;
+  --accent:#93A5FF; --accent-soft:#1C2340; --warn-bg:#2E2610; --warn:#E3B456; --code-bg:#252B36; --say:#BBD0FF; --say-bar:#2E3C63;
 }
 *{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:var(--ground);color:var(--ink);
   font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
   font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding:36px 20px 72px}
@@ -57,7 +58,7 @@ header{display:grid;gap:12px}
 .colhead.l{background:var(--side)}
 .step{display:contents}
 .act{background:var(--side);padding:14px 20px;border-bottom:1px solid var(--rule);display:grid;gap:8px;align-content:start}
-.say{padding:14px 22px;border-bottom:1px solid var(--rule);display:grid;gap:8px;align-content:start;font-size:16.5px;line-height:1.75}
+.say{padding:14px 22px;border-bottom:1px solid var(--rule);display:grid;gap:8px;align-content:start;font-size:16.5px;line-height:1.75;color:var(--say);border-left:3px solid var(--say-bar)}
 .step:last-child .act,.step:last-child .say{border-bottom:none}
 .act .n{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--accent);font-weight:500}
 .act .c{font-weight:600;font-size:15px}
@@ -86,7 +87,7 @@ header{display:grid;gap:12px}
   .act::before{content:"누를 곳";font-size:11px;letter-spacing:.06em;color:var(--muted);font-weight:600}
   .act .c{font-size:15.5px}
   .act pre{font-size:12px}
-  .say{padding:10px 16px 16px;font-size:16.5px;border-bottom:none}
+  .say{padding:12px 16px 16px;font-size:16.5px;border-bottom:none;border-left:0;border-top:2px solid var(--say-bar)}
   .step+.step .act{border-top:1px solid var(--rule);margin-top:2px;padding-top:14px}
   .note{padding:10px 16px}
   .box{padding:14px 16px}
