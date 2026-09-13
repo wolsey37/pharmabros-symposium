@@ -42,13 +42,14 @@ header{display:grid;gap:12px}
 
 
 /* flow block */
-.flow{display:grid;gap:0;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.flow{display:grid;gap:0;min-width:0;background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden}
 .flow-head{display:grid;gap:4px;padding:16px 20px;border-bottom:1px solid var(--rule)}
 .flow-head .row{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
 .flow-head .num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--accent);font-weight:500}
 .flow-head .dur{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted)}
 
-.cols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.cols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-width:0}
+.act,.say{min-width:0;overflow-wrap:anywhere}
 .colhead{font-size:12px;letter-spacing:.08em;color:var(--muted);font-weight:500;padding:8px 20px;border-bottom:1px solid var(--rule)}
 .colhead.l{background:var(--side)}
 .step{display:contents}
@@ -58,10 +59,10 @@ header{display:grid;gap:12px}
 .act .n{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--accent);font-weight:500}
 .act .c{font-weight:600;font-size:15px}
 .app{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.02em;padding:1px 7px;margin-right:6px;border-radius:4px;background:var(--accent-soft);color:var(--accent);vertical-align:1px}
-.kbd{display:inline-block;font-size:12.5px;font-weight:600;padding:0 6px;border:1px solid var(--rule);border-bottom-width:2px;border-radius:4px;background:var(--surface);white-space:nowrap}
+.kbd{display:inline-block;max-width:100%;font-size:12.5px;font-weight:600;padding:0 6px;border:1px solid var(--rule);border-bottom-width:2px;border-radius:4px;background:var(--surface);white-space:normal;overflow-wrap:anywhere}
 .act .pt{font-size:13.5px;color:var(--muted)}
 .act .pt::before{content:"짚기 ";color:var(--accent);font-weight:600}
-.act pre{margin:0;font-family:"IBM Plex Mono","IBM Plex Sans KR",monospace;font-size:12.5px;line-height:1.6;background:var(--code-bg);border-radius:6px;padding:8px 10px;white-space:pre-wrap;overflow-x:auto}
+.act pre{margin:0;max-width:100%;min-width:0;font-family:"IBM Plex Mono","IBM Plex Sans KR",monospace;font-size:12.5px;line-height:1.6;background:var(--code-bg);border-radius:6px;padding:8px 10px;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;overflow-x:auto}
 .say em{font-style:normal;background:var(--accent-soft);padding:0 3px;border-radius:3px}
 
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
