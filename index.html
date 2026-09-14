@@ -64,7 +64,10 @@ ol.do>li::before{content:counter(d);width:30px;height:30px;border-radius:50%;bac
 
 .copy{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .copy .val{font-family:"IBM Plex Mono","IBM Plex Sans KR",monospace;font-size:15px;background:var(--sunk);border-radius:8px;padding:8px 12px;flex:1 1 220px;min-width:0;white-space:pre-wrap;word-break:break-all;margin:0}
-button.cp{font:inherit;font-size:15px;font-weight:700;padding:9px 16px;border-radius:9px;border:0;background:var(--accent);color:var(--accent-ink);cursor:pointer;white-space:nowrap}
+button.ostab{display:flex;gap:6px;margin:0 0 16px;flex-wrap:wrap}
+.os-btn{font:inherit;font-size:15px;font-weight:700;padding:8px 20px;border-radius:9px;border:1px solid var(--rule);background:var(--surface);color:var(--muted);cursor:pointer}
+.os-btn.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.cp{font:inherit;font-size:15px;font-weight:700;padding:9px 16px;border-radius:9px;border:0;background:var(--accent);color:var(--accent-ink);cursor:pointer;white-space:nowrap}
 button.cp.big{padding:12px 20px;font-size:16px}
 button.cp:hover{filter:brightness(1.08)}
 button.cp.done{background:var(--ok);color:#fff}
@@ -157,6 +160,12 @@ figure.shot.narrow img{max-width:520px}
 <section class="stage" id="s1" aria-labelledby="h1s">
   <div class="stage-head"><div class="row"><span class="n">1</span><h2 id="h1s">작업 폴더 두기</h2><span class="time">약 1분</span></div>
     <p class="why">사이언스와 클로드가 같은 폴더를 쓰도록, 킷의 <code>workspace</code> 폴더를 홈 폴더에 둡니다.</p></div>
+  <div class="ostab" role="tablist" aria-label="운영체제 선택">
+    <button type="button" class="os-btn on" data-os="mac" role="tab" aria-selected="true">Mac</button>
+    <button type="button" class="os-btn" data-os="win" role="tab" aria-selected="false">Windows</button>
+  </div>
+
+  <div class="os os-mac">
   <ol class="do">
     <li><div class="b"><p class="act"><a href="consult-card-kit.zip" target="_blank" rel="noopener">consult-card-kit.zip</a>을 받아 두 번 클릭합니다.</p>
       <p class="see">다운로드 폴더에 <code>workspace</code> 폴더가 생기고, 그 안에 <code>pharmacy</code> 폴더가 있습니다</p></div></li>
@@ -166,6 +175,20 @@ figure.shot.narrow img{max-width:520px}
       <p class="warn"><b>홈에 <code>workspace</code> 폴더가 이미 있다면</b>, 통째로 옮기지 말고 안의 <code>pharmacy</code> 폴더만 기존 <code>workspace</code> 폴더로 옮기세요. "대치할까요?"라는 창이 뜨면 <b>대치를 누르지 마세요</b>. 기존 폴더의 파일이 지워집니다.</p>
       <p class="warn"><b>설정한 뒤에는 이 폴더를 옮기지 마세요.</b> 옮기면 설정을 다시 해야 합니다.</p></div></li>
   </ol>
+  </div>
+
+  <div class="os os-win" hidden>
+  <p class="warn"><b>클로드 사이언스는 현재 Mac에서만 쓸 수 있습니다.</b> Windows에서는 이 폴더 두기와 <b>3단계 클로드 설정</b>까지 하시면 되고, 2단계 사이언스는 건너뛰세요. 논문 보고서 없이 허가사항만으로도 카드가 만들어집니다.</p>
+  <ol class="do">
+    <li><div class="b"><p class="act"><a href="consult-card-kit.zip" target="_blank" rel="noopener">consult-card-kit.zip</a>을 받아 마우스 오른쪽 → <b>압축 풀기</b>를 누릅니다.</p>
+      <p class="see">다운로드 폴더에 <code>workspace</code> 폴더가 생기고, 그 안에 <code>pharmacy</code> 폴더가 있습니다</p></div></li>
+    <li><div class="b"><p class="act">파일 탐색기 주소창에 <code>%USERPROFILE%</code>을 입력해 홈 폴더를 열고, <code>workspace</code> 폴더를 그 안으로 끌어다 놓습니다.</p>
+      <p class="see">최종 위치가 아래와 같으면 됩니다 (<code>사용자이름</code>은 각자의 계정 이름입니다)</p>
+      <div class="copy"><p class="val">C:\Users\사용자이름\workspace\pharmacy</p><button class="cp" type="button">복사</button></div>
+      <p class="warn"><b>홈에 <code>workspace</code> 폴더가 이미 있다면</b>, 통째로 옮기지 말고 안의 <code>pharmacy</code> 폴더만 기존 <code>workspace</code> 폴더로 옮기세요. "파일 바꾸기 또는 건너뛰기" 창이 뜨면 <b>"대상 폴더의 파일 덮어쓰기"를 누르지 마세요</b>. 기존 폴더의 파일이 지워집니다.</p>
+      <p class="warn"><b>설정한 뒤에는 이 폴더를 옮기지 마세요.</b> 옮기면 설정을 다시 해야 합니다.</p></div></li>
+  </ol>
+  </div>
 </section>
 
 <!-- 2 -->
@@ -267,6 +290,12 @@ figure.shot.narrow img{max-width:520px}
     var src=b.getAttribute('data-src'); var el=src?document.getElementById(src):b.parentElement.querySelector('.val');
     var label=b.textContent;
     copyText(el.textContent).then(function(){b.textContent='복사됨 ✓';b.classList.add('done');setTimeout(function(){b.textContent=label;b.classList.remove('done')},1800)},function(){b.textContent='내용을 직접 선택해 복사해 주세요'});
+  });
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.os-btn'); if(!b) return;
+    var os=b.getAttribute('data-os'), box=b.closest('section');
+    Array.prototype.forEach.call(box.querySelectorAll('.os-btn'),function(x){var on=x.getAttribute('data-os')===os;x.classList.toggle('on',on);x.setAttribute('aria-selected',on?'true':'false')});
+    Array.prototype.forEach.call(box.querySelectorAll('.os'),function(x){x.hidden=!x.classList.contains('os-'+os)});
   });
   var inp=document.getElementById('drugs');
   function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
